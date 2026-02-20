@@ -11,7 +11,11 @@ public interface ScheduledWorkoutRepository extends JpaRepository<ScheduledWorko
 
     List<ScheduledWorkout> findAllByUserIdAndStatus(Long userId, WorkoutStatus status);
 
+    List<ScheduledWorkout> findAllByUserIdAndStatusOrderByScheduledAtAsc(Long userId, WorkoutStatus status);
+
     List<ScheduledWorkout> findAllByUserId(Long userId);
+
+    List<ScheduledWorkout> findAllByUserIdOrderByScheduledAtDesc(Long userId);
 
     Optional<ScheduledWorkout> findByIdAndUserId(Long id, Long userId);
 }
